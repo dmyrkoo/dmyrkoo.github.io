@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Блог для подорожей — Варіант 13</title>
+    <!-- Підключаємо шрифт з Google Fonts для приємнішого вигляду -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+    <!-- Використано семантичний тег header та навігацію nav -->
+    <div class="container header-inner">
+        <div class="logo">
+            <a href="#articles">Блог про подорожі</a>
+        </div>
+        <nav class="main-nav">
+            <!-- Навігація в хедері, посилання на секції сторінки -->
+            <a href="#articles">Статті</a>
+            <a href="#publication">Публікація</a>
+            <a href="#my-posts">Мої публікації</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <!-- Основний вміст містить три секції відповідно до вимог -->
+
+    <!-- Секція 1: Статті (сітка карток з фото, заголовком, описом і датою) -->
+    <section id="articles" class="container section">
+        <h2>Статті</h2>
+        <!-- Використано Flexbox для сітки карток: .articles-grid -->
+        <div class="articles-grid">
+            <!-- Приклади карток; використано lorem picsum для фото -->
+            <article class="card">
+                <img src="https://picsum.photos/seed/seed1/800/600" alt="Озеро в горах">
+                <div class="card-body">
+                    <h3>Озера Карпат: ранкове сяйво</h3>
+                    <p>Короткий опис статті про неймовірні сходи сонця над озером у горах.</p>
+                    <time datetime="2026-02-10">10 лютого 2026</time>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://picsum.photos/seed/seed2/800/600" alt="Вулички старого міста">
+                <div class="card-body">
+                    <h3>Прогулянка старим містом</h3>
+                    <p>Розповідь про вузькі вулички, кав'ярні та несподівані відкриття.</p>
+                    <time datetime="2026-01-28">28 січня 2026</time>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://picsum.photos/seed/seed3/800/600" alt="Прибережна дорога">
+                <div class="card-body">
+                    <h3>Морський бриз та дорога вздовж узбережжя</h3>
+                    <p>Маршрут для тих, хто любить дорогу, море та відкриття.</p>
+                    <time datetime="2025-12-05">5 грудня 2025</time>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://picsum.photos/seed/seed4/800/600" alt="Пейзаж під час походу">
+                <div class="card-body">
+                    <h3>Трекінг: крок за кроком</h3>
+                    <p>Поради для підготовки до тривалих походів і вибору спорядження.</p>
+                    <time datetime="2025-11-20">20 листопада 2025</time>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://picsum.photos/seed/seed5/800/600" alt="Кемпінг серед зірок">
+                <div class="card-body">
+                    <h3>Ніч під зорями: ідеї для кемпінгу</h3>
+                    <p>Як облаштувати табір і зберегти комфорт у дикій природі.</p>
+                    <time datetime="2025-10-02">2 жовтня 2025</time>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://picsum.photos/seed/seed6/800/600" alt="Скелі над водоспадом">
+                <div class="card-body">
+                    <h3>Водоспади і скелі: фотографічні точки</h3>
+                    <p>Кращі місця для фотографій та безпечні маршрути.</p>
+                    <time datetime="2025-08-14">14 серпня 2025</time>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Секція 2: Публікація (повна стаття з великим фото і текстом) -->
+    <section id="publication" class="container section">
+        <h2>Публікація</h2>
+        <article class="full-post">
+            <h3>Велика стаття: Подорож на край світу</h3>
+            <div class="meta">Автор: Олена П. — <time datetime="2026-02-12">12 лютого 2026</time></div>
+            <img src="https://picsum.photos/seed/fullpost/1200/600" alt="Пейзаж для великої статті">
+            <div class="post-content">
+                <p>Ця стаття — розповідь про подорож, яка змінила спосіб бачити світ. Ми вирушаємо вранці, коли ще прохолодно, і повертаємось під зорями.</p>
+                <p>По дорозі ми зустрічали місцевих, куштували страви регіону та дізнавались історії про старі традиції. Така подорож — це можливість відключитися від рутини та зануритися в атмосферу місця.</p>
+                <p>Наприкінці — поради, які допоможуть вам спланувати власну подорож і зберегти спогади.</p>
+            </div>
+        </article>
+    </section>
+
+    <!-- Секція 3: Мої публікації (панель автора з переліком статей і кнопками) -->
+    <section id="my-posts" class="container section">
+        <h2>Мої публікації</h2>
+        <aside class="author-panel">
+            <div class="author-info">
+                <img class="avatar" src="https://picsum.photos/seed/avatar/120/120" alt="Аватар автора">
+                <div>
+                    <h4>Іван І.</h4>
+                    <p>Автор блогів про активні подорожі та кемпінг.</p>
+                </div>
+            </div>
+
+            <ul class="post-list">
+                <li>
+                    <span class="post-title">Гірські вершини: перші кроки</span>
+                    <div class="post-actions">
+                        <button class="btn edit">Редагувати</button>
+                        <button class="btn delete">Видалити</button>
+                    </div>
+                </li>
+                <li>
+                    <span class="post-title">Таємниці старого міста</span>
+                    <div class="post-actions">
+                        <button class="btn edit">Редагувати</button>
+                        <button class="btn delete">Видалити</button>
+                    </div>
+                </li>
+                <li>
+                    <span class="post-title">Похід на вихідних</span>
+                    <div class="post-actions">
+                        <button class="btn edit">Редагувати</button>
+                        <button class="btn delete">Видалити</button>
+                    </div>
+                </li>
+            </ul>
+        </aside>
+    </section>
+
+</main>
+
+<footer class="site-footer">
+    <!-- Футер з контактами -->
+    <div class="container footer-inner">
+        <div>Контакти: travelblog@example.com | +380 67 123 4567</div>
+        <div>© 2026 Блог для подорожей</div>
+    </div>
+</footer>
+
+</body>
+</html>
