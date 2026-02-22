@@ -1,0 +1,176 @@
+/* style.css — стилі для "Блогу для подорожей" (Варіант 13)
+   Коментарі українською пояснюють, де використано Flexbox та медіа-запити
+*/
+
+/* Базові стилі та скидання */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; height: 100%; }
+body {
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  line-height: 1.5;
+  color: #333;
+  background: #f7f9fb;
+}
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* Хедер і навігація */
+.site-header {
+  background: linear-gradient(90deg, #ffffffcc, #f0f4f8cc);
+  box-shadow: 0 2px 6px rgba(16,24,40,0.06);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.header-inner {
+  display: flex; /* Flexbox: розташування логотипу і навігації в ряд */
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 0;
+}
+.logo a {
+  text-decoration: none;
+  color: #0f172a;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+/* Навігація зроблена з Flexbox для горизонтального розташування */
+.main-nav {
+  display: flex; /* Flexbox */
+  gap: 18px;
+}
+.main-nav a {
+  text-decoration: none;
+  color: #0f172a;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+.main-nav a:hover {
+  background: rgba(14,165,233,0.08);
+}
+
+/* Секції загальні */
+.section { padding: 36px 0; }
+.section h2 { margin: 0 0 18px 0; color: #0f172a; }
+
+/* Сітка карток статей */
+.articles-grid {
+  display: flex; /* Flexbox: гнучка сітка карток */
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(15,23,42,0.06);
+  flex: 1 1 calc(33.333% - 20px); /* три колонки за замовчуванням */
+  display: flex;
+  flex-direction: column;
+}
+.card img {
+  width: 100%; /* Адаптивне зображення */
+  height: auto;
+  display: block;
+}
+.card-body { padding: 14px 16px 18px; }
+.card-body h3 { margin: 0 0 8px 0; font-size: 1.05rem; }
+.card-body p { margin: 0 0 10px 0; color: #4b5563; }
+.card-body time { font-size: 0.85rem; color: #6b7280; }
+
+/* Повна стаття */
+.full-post {
+  background: #fff;
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 6px 18px rgba(15,23,42,0.06);
+}
+.full-post img { width: 100%; height: auto; border-radius: 8px; margin: 12px 0; }
+.full-post .meta { color: #6b7280; font-size: 0.9rem; margin-top: 6px; }
+.post-content p { color: #374151; }
+
+/* Панель автора та список публікацій */
+.author-panel {
+  margin-top: 10px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 6px 18px rgba(15,23,42,0.04);
+}
+.author-info {
+  display: flex; /* Flexbox: аватар + текст */
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.avatar { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; }
+.post-list { list-style: none; padding: 0; margin: 0; }
+.post-list li {
+  display: flex; /* Flexbox: заголовок + кнопки */
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 6px;
+  border-bottom: 1px solid #eef2f7;
+}
+.post-title { font-weight: 600; color: #0f172a; }
+.post-actions { display: flex; gap: 8px; }
+.btn {
+  padding: 6px 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.btn.edit { background: #06b6d4; color: white; }
+.btn.delete { background: #ef4444; color: white; }
+.btn:hover { opacity: 0.95; }
+
+/* Футер */
+.site-footer { padding: 18px 0; background: #0f172a; color: #fff; }
+.footer-inner { display: flex; justify-content: space-between; gap: 12px; align-items: center; }
+.site-footer a { color: #93c5fd; }
+
+/* ------------------ АДАПТИВНІСТЬ: медіа-запити ------------------ */
+/* Планшети: зменшити колонки в сітці, змінити відступи */
+@media (max-width: 900px) {
+  .articles-grid { gap: 16px; }
+  .card { flex: 1 1 calc(50% - 16px); } /* дві колонки */
+  .footer-inner { flex-direction: column; align-items: flex-start; }
+}
+
+/* Мобільні: меню вертикальне, одна колонка для карток, менший шрифт */
+@media (max-width: 600px) {
+  .header-inner { padding: 12px 0; }
+  /* Навігація стає вертикальною (меню для мобільних) */
+  .main-nav {
+    flex-direction: column; /* Flexbox: вертикальне розташування лінків */
+    background: transparent;
+    gap: 10px;
+    align-items: flex-end;
+  }
+  .main-nav a { padding: 8px 10px; }
+
+  .articles-grid { gap: 12px; }
+  .card { flex: 1 1 100%; } /* одна колонка */
+  .full-post { padding: 12px; }
+  .author-info { gap: 10px; }
+  .avatar { width: 56px; height: 56px; }
+
+  .container { padding: 0 12px; }
+  .section { padding: 20px 0; }
+  .footer-inner { flex-direction: column; align-items: flex-start; }
+}
+
+/* Додатково: дрібні візуальні покращення */
+h2 { font-size: 1.4rem; }
+h3 { font-size: 1.05rem; }
+
+/* Зробити посилання у логотипі більш помітним на мобільних */
+@media (max-width: 420px) {
+  .logo a { font-size: 1rem; }
+}
+
